@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NUMBER BY PHOENIX</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        flex-direction: column;
+    }
+    #numbers {
+        font-size: 20px;
+        margin-bottom: 10px;
+    }
+    .reveal-button {
+        background-color: red;
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        font-size: 16px;
+        cursor: pointer;
+        margin-bottom: 10px;
+    }
+    .random-button {
+        background-color: green;
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        font-size: 16px;
+        cursor: pointer;
+    }
+</style>
+</head>
+<body>
+<h1>NUMBER BY PHOENIX</h1>
+<div id="numbers"></div>
+<button class="reveal-button" onclick="revealAnswer()">Reveal Answer</button>
+<button class="random-button" onclick="randomNumbers()">New Numbers</button>
+
+<script>
+    function randomNumbers() {
+        var number1 = Math.floor(Math.random() * 89) + 11;
+        var number2 = Math.floor(Math.random() * 89) + 11;
+        var number3 = Math.floor(Math.random() * 89) + 11;
+        var number4 = Math.floor(Math.random() * 89) + 11;
+        document.getElementById("numbers").innerText = "Numbers: " + number1 + ", " + number2 + ", " + number3 + ", " + number4;
+    }
+
+    function revealAnswer() {
+        var number1 = parseInt(document.getElementById("numbers").innerText.split(", ")[0].split(": ")[1]);
+        var number2 = parseInt(document.getElementById("numbers").innerText.split(", ")[1]);
+        var number3 = parseInt(document.getElementById("numbers").innerText.split(", ")[2]);
+        var number4 = parseInt(document.getElementById("numbers").innerText.split(", ")[3]);
+        var combined = number1 + number2 + number3 + number4;
+        alert("Combined Answer: " + combined);
+    }
+
+    // Initial randomization on page load
+    randomNumbers();
+</script>
+</body>
+</html>
